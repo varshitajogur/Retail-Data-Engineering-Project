@@ -1,0 +1,10 @@
+flowchart LR
+A[CSV / Amazon S3 / Azure SQL] --> B[Azure Data Factory]
+B --> C[ADLS Gen2 Raw]
+C --> D[Azure Databricks / PySpark]
+D --> E[Data Quality]
+E --> F[ADLS Gen2 Curated]
+F --> G[Azure SQL Database]
+G --> H[Power BI]
+K[Azure Key Vault] -. secrets .-> B
+K -. secrets .-> D

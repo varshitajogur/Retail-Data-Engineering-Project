@@ -1,0 +1,4 @@
+dataset,rows,null_cells,duplicate_keys,invalid_dates,orphan_foreign_keys,quality_status
+customers,[N],[N],[N],N/A,[N],[PASS/FAIL]
+orders,[N],[N],[N],[N],[N],[PASS/FAIL]
+order_items,[N],[N],[N],N/A,[N],[PASS/FAIL]
