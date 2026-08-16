@@ -1,98 +1,94 @@
-# **Retail Data Engineering Project Using Azure**
+# Retail Data Engineering Project — Master's Portfolio Upgrade
 
-An **End-to-End Data Engineering** project that builds a scalable retail analytics pipeline using Azure services. The project ingests customer, order, and order item data from multiple sources, performs data validation and transformation with **Apache Spark**, and loads the processed data into **Azure SQL Database** for analytics and reporting.
+This repository demonstrates an end-to-end retail data engineering workflow using the project's customer, order and order-item datasets.
 
----
+## Current Architecture
 
-# **Project Overview**
+**Sources → Ingestion → ADLS Gen2 → Databricks / PySpark → Data Quality → Azure SQL → Power BI**
 
-This project demonstrates a modern cloud-based data engineering workflow by integrating data from **Azure Data Lake Storage**, **Amazon S3**, and **Azure SQL Database**. The pipeline is orchestrated using **Azure Data Factory**, while **Azure Databricks** handles large-scale data processing and transformation.
+The repository currently contains the original `Datasets/` folder and `Sales_Project.ipynb`. The files added in this upgrade provide reproducible engineering artifacts around that existing work.
 
----
-
-# **Architecture**
-
-* Data Ingestion from **Amazon S3**, **Azure SQL Database**, and CSV files
-* Data Storage using **Azure Data Lake Storage Gen2 (ADLS)**
-* Data Processing with **Azure Databricks** and **Apache Spark**
-* Pipeline Orchestration using **Azure Data Factory**
-* Secure Credential Management with **Azure Key Vault**
-* Processed Data Storage in **Azure SQL Database**
-
----
-
-# **Features**
-
-* End-to-End Data Pipeline
-* Multi-Source Data Integration
-* Automated ETL Workflow
-* Data Validation & Cleansing
-* Apache Spark Data Processing
-* Secure Secret Management
-* Retail Sales Analytics
-* Cloud-Based Data Engineering
-
----
-
-# **Tech Stack**
-
-* **Python (PySpark)**
-* **SQL**
-* **Apache Spark**
-* **Azure Data Lake Storage Gen2**
-* **Azure Databricks**
-* **Azure Data Factory**
-* **Azure SQL Database**
-* **Azure Key Vault**
-* **Amazon S3**
-
----
-
-# **Datasets**
-
-The project processes three retail datasets:
-
-* **Customers** – Customer information and demographics.
-* **Orders** – Order details and transaction records.
-* **Order Items** – Product-level order information.
-
----
-
-# **Data Pipeline Workflow**
-
-1. Ingest retail datasets from multiple sources.
-2. Store raw data in **Azure Data Lake Storage Gen2**.
-3. Validate and transform data using **Azure Databricks**.
-4. Apply business rules and data quality checks.
-5. Load processed data into **Azure SQL Database**.
-6. Enable reporting and analytics using the transformed datasets.
-
----
-
-# **Repository Structure**
+## Repository Structure
 
 ```text
-Retail_Data_Engineering_Project/
-│
+Retail-Data-Engineering-Project/
+├── Datasets/
 ├── notebooks/
-├── datasets/
 ├── sql/
-├── images/
 ├── architecture/
+├── docs/
+├── data_quality/
+├── performance/
+├── tests/
+├── dashboard/
+├── images/
+├── Sales_Project.ipynb
 └── README.md
 ```
 
----
+## Datasets
 
-# **Key Concepts**
+The current repository contains:
+- `customers.csv`
+- `orders_new.csv`
+- `orders_sample.csv`
+- `order_items.csv`
 
-* Data Engineering
-* ETL Pipeline
-* Cloud Data Integration
-* Apache Spark
-* Data Validation
-* Azure Data Factory
-* Azure Databricks
-* Azure SQL Database
-* Azure Data Lake Storage
-* Retail Analytics
+The customer schema contains `customer_id`, customer name fields and location fields; the orders schema contains `order_id`, `order_date`, `customer_id` and `order_status`. citeturn3view0turn4view0
+
+## Engineering Workflow
+
+1. Ingest source files.
+2. Store raw data in a cloud landing zone.
+3. Validate schemas and data quality.
+4. Transform using PySpark.
+5. Model analytics-ready data using a star schema.
+6. Load curated tables into Azure SQL Database.
+7. Orchestrate the workflow with Azure Data Factory.
+8. Store credentials securely using Azure Key Vault.
+9. Connect curated data to Power BI.
+10. Measure pipeline performance and data-quality outcomes.
+
+## Important Evidence Rule
+
+Do not claim Azure Data Factory, Databricks, Azure SQL, Key Vault or Power BI execution merely because the architecture is documented. Add screenshots and measured outputs from the actual environment before marking those components as implemented.
+
+## Data Quality
+
+Run the data-quality scripts/notebooks and record:
+- row counts
+- null counts
+- duplicate counts
+- invalid key counts
+- date validation
+- referential integrity
+
+The generated report belongs in `data_quality/`.
+
+## Performance
+
+Record:
+- input rows
+- output rows
+- rejected rows
+- runtime
+- throughput
+- success/failure rate
+
+Only report measured values.
+
+## Academic Positioning
+
+This project demonstrates:
+- cloud data engineering
+- ETL/ELT design
+- distributed processing with Spark
+- relational data modelling
+- data-quality engineering
+- pipeline orchestration
+- BI enablement
+- performance measurement
+
+## Limitations
+
+The public repository is a portfolio project. Cloud-service claims should be supported by implementation evidence and screenshots from the actual Azure environment.
